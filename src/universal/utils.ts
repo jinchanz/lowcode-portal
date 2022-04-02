@@ -33,6 +33,14 @@ export const getPageSchema = async () => {
   return schema.componentsTree[0];
 };
 
+export const getFullSchema = async () => {
+  return await request('https://documents.ablula.tech/admin/schema.json');
+};
+
+export const getAssets = async () => {
+  return await request('https://i.ablula.tech/portal/assets.json');
+};
+
 function request(
   dataAPI: string,
   method = 'GET',

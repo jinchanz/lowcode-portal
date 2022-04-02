@@ -22,13 +22,13 @@ import TitleSetter from '@alilc/lowcode-setter-title';
 import BehaviorSetter from '../setters/behavior-setter';
 import CustomSetter from '../setters/custom-setter';
 import Logo from '../sample-plugins/logo';
+import { getAssets } from './utils';
 
 import {
   getPageSchema,
   saveSchema,
   preview,
 } from './utils';
-import assets from './assets.json'
 
 export default async function registerPlugins() {
 
@@ -44,15 +44,9 @@ export default async function registerPlugins() {
     return {
       name: 'editor-init',
       async init() {
-        // 修改面包屑组件的分隔符属性setter
-        // const assets = await (
-        //   await fetch(
-        //     `https://alifd.alicdn.com/npm/@alilc/lowcode-materials/build/lowcode/assets-prod.json`
-        //   )
-        // ).json();
-        // 设置物料描述
+        
         const { material, project } = ctx;
-
+        const assets = await getAssets();
         material.setAssets(assets);
 
         const schema = await getPageSchema();
