@@ -9,10 +9,12 @@ export const preview = () => {
 };
 
 export const saveSchema = async () => {
+  const queryString = location.search || '';
+  const defaultCurrentPage: string = queryString.includes('home') ? 'home' : 'login';
   const schema = project.exportSchema();
-  const url = 'https://documents.ablula.tech/api/v1/schemas';
+  const url = '/api/v1/schemas';
   const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+   method: 'POST', // *GET, POST, PUT, DELETE, etc.
    mode: 'cors', // no-cors, *cors, same-origin
    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
    credentials: 'same-origin', // include, *same-origin, omit
@@ -22,19 +24,23 @@ export const saveSchema = async () => {
    },
    redirect: 'follow', // manual, *follow, error
    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-   body: JSON.stringify(schema)
+   body: JSON.stringify({
+     schema,
+     page: defaultCurrentPage,
+   })
   });
   console.log(response);
   Message.success('保存成功');
 };
 
-export const getPageSchema = async () => {
-  const schema = await request('https://documents.ablula.tech/admin/schema.json');
+export const getPageSchema = async (page: string) => {
+  const schema = await getFullSchema(page);
   return schema.componentsTree[0];
 };
 
-export const getFullSchema = async () => {
-  return await request('https://documents.ablula.tech/admin/schema.json');
+export const getFullSchema = async (page: string) => {
+  const url = `https://i.ablula.tech/portal/${page === 'home' ? 'schema' : 'login'}.json`
+  return await request(url);
 };
 
 export const getAssets = async () => {

@@ -22,6 +22,7 @@ import TitleSetter from '@alilc/lowcode-setter-title';
 import BehaviorSetter from '../setters/behavior-setter';
 import CustomSetter from '../setters/custom-setter';
 import Logo from '../sample-plugins/logo';
+import PagesPane from '../plugins/pages-plugin';
 import { getAssets } from './utils';
 
 import {
@@ -44,12 +45,13 @@ export default async function registerPlugins() {
     return {
       name: 'editor-init',
       async init() {
-        
+        const queryString = location.search || '';
+        const defaultCurrentPage = queryString.includes('home') ? 'home' : 'login';
         const { material, project } = ctx;
         const assets = await getAssets();
         material.setAssets(assets);
 
-        const schema = await getPageSchema();
+        const schema = await getPageSchema(defaultCurrentPage);
 
         // 加载 schema
         project.openDocument(schema);
@@ -95,7 +97,21 @@ export default async function registerPlugins() {
         componentsPane?.disable?.();
         project.onSimulatorRendererReady(() => {
           componentsPane?.enable?.();
-        })
+        });
+        // 注册页面插件
+        skeleton.add({
+          index: -1,
+          area: 'leftArea',
+          type: 'PanelDock',
+          name: 'pagesPane',
+          content: PagesPane,
+          contentProps: {},
+          props: {
+            align: 'top',
+            icon: 'kaiwenjianjia',
+            description: '页面管理',
+          },
+        });
       },
     };
   }

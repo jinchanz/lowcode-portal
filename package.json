@@ -1,6 +1,6 @@
 {
   "name": "@ablula/lowcode-portal",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "文档站点 portal 设计器",
   "repository": "git@github.com:mark-ck/lowcode-portal.git",
   "license": "MIT",
