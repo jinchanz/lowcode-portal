@@ -1,16 +1,16 @@
-import { material, project } from '@alilc/lowcode-engine';
+import { config, project } from '@alilc/lowcode-engine';
 import { Message, Dialog } from '@alifd/next';
 
 export const preview = () => {
   saveSchema();
   setTimeout(() => {
-    window.open(`./preview.html${location.search}`);
+    const defaultCurrentPage: string = config.get('currentPage') || 'home';
+    window.open(`./preview.html?page=${defaultCurrentPage}`);
   }, 500);
 };
 
 export const saveSchema = async () => {
-  const queryString = location.search || '';
-  const defaultCurrentPage: string = queryString.includes('home') ? 'home' : 'login';
+  const defaultCurrentPage: string = config.get('currentPage') || 'home';
   const schema = project.exportSchema();
   const url = '/api/v1/schemas';
   const response = await fetch(url, {

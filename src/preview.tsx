@@ -11,7 +11,9 @@ const SamplePreview = () => {
   async function init() {
     const assets = await getAssets();
     const { packages } = assets;
-    const projectSchema = await getFullSchema();
+    const queryString = location.search || '';
+    const defaultCurrentPage = queryString.includes('home') ? 'home' : 'login';
+    const projectSchema = await getFullSchema(defaultCurrentPage);
     const { componentsMap: componentsMapArray, componentsTree } = projectSchema;
     const componentsMap: any = {};
     componentsMapArray.forEach((component: any) => {

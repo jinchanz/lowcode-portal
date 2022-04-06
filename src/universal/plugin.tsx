@@ -5,6 +5,7 @@ import {
   skeleton,
   project,
   setters,
+  config,
 } from '@alilc/lowcode-engine';
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext';
 import { Button } from '@alifd/next';
@@ -45,8 +46,8 @@ export default async function registerPlugins() {
     return {
       name: 'editor-init',
       async init() {
-        const queryString = location.search || '';
-        const defaultCurrentPage = queryString.includes('home') ? 'home' : 'login';
+
+        const defaultCurrentPage = config.get('currentPage') || 'home';
         const { material, project } = ctx;
         const assets = await getAssets();
         material.setAssets(assets);
