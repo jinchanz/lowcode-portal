@@ -13,6 +13,16 @@ export const listFiles = async () => {
   return res.data;
 }
 
+export const getFileById = async (id) => {
+  const url = `${BASE_URL}/files/${id}`;
+  const res = await request(url);
+  console.log('res: ', res);
+  if (res.code) {
+    console.error('list file failed: ', res);
+    return;
+  }
+  return res.data;
+}
 
 export const createFile = async (file) => {
   const url = `${BASE_URL}/files`;

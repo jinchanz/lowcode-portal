@@ -43,6 +43,10 @@ export const getFullSchema = async (page: string) => {
   return await request(url);
 };
 
+export const getFullSchemaByUrl = async (url) => {
+  return await request(url);
+};
+
 export const getAssets = async () => {
   return await request('https://i.ablula.tech/portal/assets.json');
 };

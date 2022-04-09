@@ -74,8 +74,8 @@ export default async function registerPlugins() {
           name: 'logo',
           content: Logo,
           contentProps: {
-            logo: 'https://img.alicdn.com/imgextra/i4/O1CN013w2bmQ25WAIha4Hx9_!!6000000007533-55-tps-137-26.svg',
-            href: 'https://lowcode-engine.cn',
+            logo: 'https://i.ablula.tech/ablula.png',
+            href: '/',
           },
           props: {
             align: 'left',

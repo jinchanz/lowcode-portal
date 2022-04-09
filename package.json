@@ -1,6 +1,6 @@
 {
   "name": "@ablula/lowcode-portal",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "文档站点 portal 设计器",
   "repository": "git@github.com:mark-ck/lowcode-portal.git",
   "license": "MIT",
@@ -16,6 +16,7 @@
   ],
   "config": {},
   "dependencies": {
+    "@alifd/theme-ablula-document": "^0.2.1",
     "@alilc/lowcode-plugin-code-editor": "^1.0.1",
     "@alilc/lowcode-plugin-code-generator": "^1.0.2",
     "@alilc/lowcode-plugin-components-pane": "^1.0.2",
@@ -28,7 +29,9 @@
     "@alilc/lowcode-plugin-zh-en": "^1.0.0",
     "@alilc/lowcode-react-renderer": "^1.0.0",
     "@alilc/lowcode-setter-behavior": "^1.0.0",
-    "@alilc/lowcode-setter-title": "^1.0.2"
+    "@alilc/lowcode-setter-title": "^1.0.2",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",

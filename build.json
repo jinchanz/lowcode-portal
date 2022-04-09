@@ -1,6 +1,7 @@
 {
   "entry": {
-    "preview": "./src/preview.tsx"
+    "preview": "./src/preview",
+    "renderer": "./src/renderer"
   },
   "vendor": false,
   "devServer": {
@@ -24,6 +25,12 @@
   "plugins": [
     [
       "build-plugin-react-app"
+    ],
+    [
+      "build-plugin-fusion",
+      {
+        "themePackage": "@alifd/theme-ablula-document"
+      }
     ],
     [
       "build-plugin-moment-locales",
