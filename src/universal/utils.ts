@@ -39,7 +39,7 @@ export const getPageSchema = async (page: string) => {
 };
 
 export const getFullSchema = async (page: string) => {
-  const url = `https://i.ablula.tech/portal/${page === 'home' ? 'schema' : 'login'}.json`
+  const url = `https://i.ablula.tech/portal/${page}.json`
   return await request(url);
 };
 
