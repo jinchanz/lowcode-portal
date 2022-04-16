@@ -6,6 +6,7 @@ import {
   project,
   setters,
   config,
+  material
 } from '@alilc/lowcode-engine';
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext';
 import { Button } from '@alifd/next';
@@ -17,6 +18,7 @@ import DataSourcePanePlugin from '@alilc/lowcode-plugin-datasource-pane';
 import SchemaPlugin from '@alilc/lowcode-plugin-schema';
 import CodeEditor from "@alilc/lowcode-plugin-code-editor";
 import SimulatorResizer from '@alilc/lowcode-plugin-simulator-select';
+import Inject from '@alilc/lowcode-plugin-inject';
 
 // 注册到引擎
 import TitleSetter from '@alilc/lowcode-setter-title';
@@ -24,6 +26,8 @@ import BehaviorSetter from '../setters/behavior-setter';
 import CustomSetter from '../setters/custom-setter';
 import Logo from '../sample-plugins/logo';
 import PagesPane from '../plugins/pages-plugin';
+import saveAsBlock from '../actions/block';
+import BlockPane from '../plugins/block-plugin';
 import { getAssets } from './utils';
 
 import {
@@ -34,6 +38,11 @@ import {
 
 export default async function registerPlugins() {
 
+  await plugins.register(Inject);
+  // 注册保存为区块工作条
+  material.addBuiltinComponentAction(saveAsBlock);
+
+  await plugins.register(BlockPane);
 
   // plugin API 见 https://yuque.antfin.com/ali-lowcode/docs/cdukce
   SchemaPlugin.pluginName = 'SchemaPlugin';
