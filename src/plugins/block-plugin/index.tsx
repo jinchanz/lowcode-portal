@@ -33,8 +33,8 @@ const LowcodePluginCusPlugin = (ctx: ILowCodePluginContext) => {
         name: 'blockPane',
         type: 'PanelDock',
         props: {
-          icon: 'smile',
-          description: 'Demo',
+          icon: <img src='https://i.ablula.tech/portal/block.svg' style={{ filter: 'brightness(1)' }} />,
+          description: '区块面板',
         },
         contentProps: {
           api: { 
