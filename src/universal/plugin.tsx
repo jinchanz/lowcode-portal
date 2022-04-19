@@ -18,7 +18,10 @@ import DataSourcePanePlugin from '@alilc/lowcode-plugin-datasource-pane';
 import SchemaPlugin from '@alilc/lowcode-plugin-schema';
 import CodeEditor from "@alilc/lowcode-plugin-code-editor";
 import SimulatorResizer from '@alilc/lowcode-plugin-simulator-select';
+import BlockPane from '@alilc/lowcode-plugin-block';
 import Inject from '@alilc/lowcode-plugin-inject';
+
+import { default as saveAsBlock } from '@alilc/action-block';
 
 // 注册到引擎
 import TitleSetter from '@alilc/lowcode-setter-title';
@@ -26,8 +29,7 @@ import BehaviorSetter from '../setters/behavior-setter';
 import CustomSetter from '../setters/custom-setter';
 import Logo from '../sample-plugins/logo';
 import PagesPane from '../plugins/pages-plugin';
-import saveAsBlock from '../actions/block';
-import BlockPane from '../plugins/block-plugin';
+
 import { getAssets } from './utils';
 
 import {

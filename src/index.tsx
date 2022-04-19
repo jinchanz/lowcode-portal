@@ -1,4 +1,5 @@
-import { init, plugins } from '@alilc/lowcode-engine';
+import { init, config } from '@alilc/lowcode-engine';
+import { listBlocks, createBlock } from './apis/block';
 import registerPlugins from './universal/plugin';
 import './universal/global.scss';
 
@@ -15,7 +16,17 @@ preference.set('DataSourcePane', {
   ]
 });
 
+function setupConfig() {
+  config.set('apiList', {
+    block: {
+      listBlocks,
+      createBlock
+    },
+  })
+}
+
 (async function main() {
+  setupConfig();
   await registerPlugins();
 
   init(document.getElementById('lce-container')!, {

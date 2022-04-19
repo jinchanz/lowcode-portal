@@ -17,6 +17,8 @@
   "config": {},
   "dependencies": {
     "@alifd/theme-ablula-document": "^0.3.0",
+    "@alilc/action-block": "^1.0.0-beta.0",
+    "@alilc/lowcode-plugin-block": "^1.0.0-beta.0",
     "@alilc/lowcode-plugin-code-editor": "^1.0.1",
     "@alilc/lowcode-plugin-code-generator": "^1.0.2",
     "@alilc/lowcode-plugin-components-pane": "^1.0.2",
